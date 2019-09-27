@@ -17,33 +17,42 @@
       </section>
       <section class="app-explainer-new">
         <h2>Whats new for 2019</h2>
-        <p>
-          The Kentucky Department of Education has included a star rating system in an effort to help
-          help more easily guage the overall performance of a school. The designation of Targeted Support 
-          and Improvement (TSI) has been renamed to (ATSI).
-          Curabitur tortor risus, ornare nec dolor quis, semper consectetur nisi. Vivamus interdum,
-          velit eu lacinia laoreet, odio nulla pulvinar velit, quis fringilla lectus nunc sed ligula.
-          Quisque et ipsum ut magna pulvinar posuere. Nulla ut mi mattis, posuere risus ac, tristique
-          libero. Morbi blandit non nulla a tristique. Morbi iaculis turpis nunc, eu dignissim quam
-          dignissim a. Nam non magna at nunc porta dictum. Integer sit amet suscipit risus. Etiam sit
-          amet porta erat, in maximus magna. Interdum et malesuada fames ac ante ipsum primis in faucibus.
-          Proin fermentum rutrum urna, sit amet ultricies leo pretium eget.
-        </p>
+        <ul>
+          <li>
+            In an effort to help more easily guage the overall performance of a school, The Kentucky
+            Department of Education has included a star rating system which assigns 1 and 5 stars based
+            based on a combination of factors.
+            <a
+              href="#"
+            >Read more about how this rating is calculated.</a>
+          </li>
+          <li>
+            In keeping with federal standards,
+            the designation of
+            <i>
+              Targeted Support
+              and Improvement
+            </i> (TSI) has been renamed to
+            <i>Additional Targeted Support and Improvement</i> (ATSI).
+          </li>
+        </ul>
       </section>
       <section class="app-explainer-designations">
         <h2>How the designations work</h2>
         <p>
-          For the 2018 year the Kentucky Department of Education implemented two primary designations to schools
-          with poor performance. <a href="https://www.courier-journal.com/story/news/education/2018/09/26/kentucky-school-ratings-system-what-csi-tsi-mean/1427412002/">
-          Read more about how these designations work</a>.
-          Morbi blandit non nulla a tristique. Morbi iaculis turpis nunc, eu dignissim quam
-          dignissim a. Nam non magna at nunc porta dictum. Integer sit amet suscipit risus. Etiam sit
-          amet porta erat, in maximus magna. Interdum et malesuada fames ac ante ipsum primis in faucibus.
+          Schools will be identified only for the federally-required accountability designations of Targeted Support and Improvement (TSI) – those with one or more low-performing groups – and Comprehensive Support and Improvement (CSI) – those in the bottom 5 percent of performance by level (elementary, middle or high); or that have a 4- year graduation rate of less than 80 percent. Schools designated as TSI and CSI will have to develop improvement plans and CSI schools will be provided additional support.
+          <a
+            href="https://www.courier-journal.com/story/news/education/2018/09/26/kentucky-school-ratings-system-what-csi-tsi-mean/1427412002/"
+          >Read more about how these designations work</a>.
         </p>
       </section>
       <section class="app-database">
-        <h2>Star Search Database</h2>
-        <p></p>
+        <h2>Search the database of Kentucky schools</h2>
+        <p>
+          The Kentucky Department of Education has released over 500,000(?) data points related to KPREP testing across the state.
+          Courier Journal has parsed the most relevant data points into an easy to search database. Simply enter the name of the school
+          or the district.
+        </p>
         <SearchBar />
         <DataTable :data="ScoreData" />
       </section>
@@ -71,6 +80,12 @@ export default {
 </script>
 
 <style>
+@font-face {
+  font-family: "Unify Sans";
+  src: url(https://www.gannett-cdn.com/gannett-web/global/fonts/unify/UnifySans_W_Bd.woff2);
+  font-weight: 800;
+}
+
 :root {
   --gannett-blue: #009bff;
   --gannett-grey: #404040;
@@ -97,5 +112,47 @@ main {
   margin-bottom: 1rem;
   border: 1px solid transparent;
   border-radius: 0.25rem;
+}
+
+section {
+  margin: 2em 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: "Unify Sans", sans-serif;
+}
+
+h1 {
+  font-size: 2.6em !important;
+}
+
+h1:after {
+  background: var(--gannett-blue);
+  content: "";
+  display: block;
+  height: 9px;
+  margin: 10px 0;
+  width: 45px;
+}
+
+h2 {
+  font-size: 1.3em;
+  border-left: 6px solid var(--gannett-blue);
+  padding-left: 8px;
+}
+
+p,
+ul {
+  font-size: 1em;
+  line-height: 1.3em;
+  margin: 1em;
+}
+
+li {
+  margin-bottom: 10px;
 }
 </style>

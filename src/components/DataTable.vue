@@ -27,8 +27,17 @@ export default {
 </script>
 
 <style>
+/*
+NOTE: why are we using our own styles here to essentially generate a table?
+Because as of this version of Vue, templates must have exactly one root element.
+This causes a problem when trying to create an iterable component of a table that should have 2 <tr>
+elements for every row of data (one main and one collapsible). https://github.com/vuejs/vue/issues/7088#issuecomment-357899727
+There are numerous 'hacks' for this but at this point it was decided to just create a psuedo
+table out of divs. If vue ever supports Fragments ala React, refactor this all back into a table.
+*/
 .table-container {
   padding: 1em;
+  min-height:70vh;
 }
 
 .table {
