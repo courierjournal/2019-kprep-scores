@@ -1,22 +1,22 @@
 <template>
   <div class="table-container">
-    <table>
-      <thead>
-        <tr>
-          <th>School</th>
-          <th>Designation</th>
-          <th>Stars</th>
-          <th>More</th>
-        </tr>
-      </thead>
-      <tbody>
-        <DataRow v-for="(item,index) in data" :key="index" :rowData="item" />
-      </tbody>
-    </table>
+    <div class="table">
+      <div class="thead">
+        <div class="tr">
+          <div class="th">School</div>
+          <div class="th">Designation</div>
+          <div class="th">Stars</div>
+          <div class="th">More</div>
+        </div>
+      </div>
+      <div class="tbody">
+        <DataRow v-for="(item,index) in data" :rowData="item" :key="index" />
+      </div>
+    </div>
   </div>
 </template>
 
-<script>
+<script scoped>
 import DataRow from "./DataRow";
 
 export default {
@@ -31,38 +31,56 @@ export default {
   padding: 1em;
 }
 
-table {
+.table {
+  display: table;
   width: 100%;
   border-collapse: collapse;
 }
 
-thead > tr {
+.thead {
+  display: table-header-group;
+}
+
+.tbody {
+  display: table-row-group;
+}
+
+.tr {
+  display: table-row;
+}
+
+.td,
+.th {
+  display: table-cell;
+  vertical-align:middle;
+  padding:1em;
+}
+
+.thead > .tr {
   border-bottom: 1px solid #ccc;
 }
 
-thead > tr > th {
-  padding: 1em;
+.th {
+  font-weight:bold;
 }
 
-tbody> tr:nth-child(even){
-    background-color:#eee;
+.tbody > .tr:nth-child(even) {
+  background-color: #eee;
 }
 
-th:first-child {
+.th:first-child, .td:first-child  {
   text-align: left;
 }
 
-th:nth-child(2) {
+.th:nth-child(2), .td:nth-child(2) {
   text-align: left;
 }
 
-th:nth-child(3) {
+.th:nth-child(3), .td:nth-child(3) {
   text-align: center;
 }
 
-th:last-child {
+.th:last-child, .td:last-child  {
   text-align: center;
 }
-
-
 </style>

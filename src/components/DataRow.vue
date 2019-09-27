@@ -1,24 +1,24 @@
 <template>
-  <tr>
-    <td>
+  <div class="tr">
+    <div class="td">
       <div class="school-name">{{rowData.n}}</div>
       <div class="school-district">{{rowData.d}}</div>
-    </td>
-    <td>{{rowData.e}}</td>
-    <td>
+    </div>
+    <div class="td">{{rowData.e}}</div>
+    <div class="td">
       <div class="star-container">
         <span class="full-stars" v-for="index in getStars[0]" :key="'f'+ index">★</span>
         <span class="empty-stars" v-for="index in getStars[1]" :key="'e' + index">★</span>
       </div>
-    </td>
-    <td>
+    </div>
+    <div class="td">
       <div
         class="expand-button"
         :class="{ active: rowExpanded }"
         @click="rowExpanded = !rowExpanded"
       >+</div>
-    </td>
-  </tr>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -41,28 +41,12 @@ export default {
 </script>
 
 <style>
-.school-name{
-    font-weight:bold;
-    font-size:1.1rem;
-}
-tr > td {
-  padding: 1em;
+.school-name {
+  font-weight: bold;
 }
 
-td:first-child {
-  text-align: left;
-}
-
-td:nth-child(2) {
-  text-align: left;
-}
-
-td:nth-child(3) {
-  text-align: center;
-}
-
-td:last-child {
-  text-align: center;
+.school-district {
+  font-size: 0.8rem;
 }
 
 .star-container {
@@ -91,6 +75,7 @@ td:last-child {
   line-height: 27px;
   transition: transform 0.3s;
   cursor: pointer;
+  user-select: none;
 }
 
 .expand-button.active {

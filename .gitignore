@@ -22,5 +22,6 @@ yarn-error.log*
 
 # Prevent data from being committed before embargo
 src/data/*.json
+!src/data/dummy-scores.json
 raw-data/*
 !raw-data/*.md

@@ -3,6 +3,8 @@
 
 Project repo that contains the 2019 kprep searchable database tool. 
 
+**See last block in .gitignore to prevent leaking before embargo**
+
 
 ## Standard Vue Cli stuff:
 

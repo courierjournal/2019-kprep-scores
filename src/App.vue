@@ -16,22 +16,39 @@
         </p>
       </section>
       <section class="app-explainer-new">
-        <div class="explainer-popout">
-          <h3>Whats new for 2019</h3>
-          <p>
-            Curabitur tortor risus, ornare nec dolor quis, semper consectetur nisi. Vivamus interdum,
-            velit eu lacinia laoreet, odio nulla pulvinar velit, quis fringilla lectus nunc sed ligula.
-            Quisque et ipsum ut magna pulvinar posuere. Nulla ut mi mattis, posuere risus ac, tristique
-            libero. Morbi blandit non nulla a tristique. Morbi iaculis turpis nunc, eu dignissim quam
-            dignissim a. Nam non magna at nunc porta dictum. Integer sit amet suscipit risus. Etiam sit
-            amet porta erat, in maximus magna. Interdum et malesuada fames ac ante ipsum primis in faucibus.
-            Proin fermentum rutrum urna, sit amet ultricies leo pretium eget.
-          </p>
-        </div>
+        <h2>Whats new for 2019</h2>
+        <p>
+          The Kentucky Department of Education has included a star rating system in an effort to help
+          help more easily guage the overall performance of a school. The designation of Targeted Support 
+          and Improvement (TSI) has been renamed to (ATSI).
+          Curabitur tortor risus, ornare nec dolor quis, semper consectetur nisi. Vivamus interdum,
+          velit eu lacinia laoreet, odio nulla pulvinar velit, quis fringilla lectus nunc sed ligula.
+          Quisque et ipsum ut magna pulvinar posuere. Nulla ut mi mattis, posuere risus ac, tristique
+          libero. Morbi blandit non nulla a tristique. Morbi iaculis turpis nunc, eu dignissim quam
+          dignissim a. Nam non magna at nunc porta dictum. Integer sit amet suscipit risus. Etiam sit
+          amet porta erat, in maximus magna. Interdum et malesuada fames ac ante ipsum primis in faucibus.
+          Proin fermentum rutrum urna, sit amet ultricies leo pretium eget.
+        </p>
+      </section>
+      <section class="app-explainer-designations">
+        <h2>How the designations work</h2>
+        <p>
+          For the 2018 year the Kentucky Department of Education implemented two primary designations to schools
+          with poor performance. <a href="https://www.courier-journal.com/story/news/education/2018/09/26/kentucky-school-ratings-system-what-csi-tsi-mean/1427412002/">
+          Read more about how these designations work</a>.
+          Morbi blandit non nulla a tristique. Morbi iaculis turpis nunc, eu dignissim quam
+          dignissim a. Nam non magna at nunc porta dictum. Integer sit amet suscipit risus. Etiam sit
+          amet porta erat, in maximus magna. Interdum et malesuada fames ac ante ipsum primis in faucibus.
+        </p>
       </section>
       <section class="app-database">
+        <h2>Star Search Database</h2>
+        <p></p>
         <SearchBar />
         <DataTable :data="ScoreData" />
+      </section>
+      <section class="app-map">
+        <h2>Map of Schools in Kentucky</h2>
       </section>
     </main>
   </div>
@@ -40,7 +57,7 @@
 <script>
 import SearchBar from "@/components/SearchBar";
 import DataTable from "@/components/DataTable";
-import ScoreData from "@/data/2019-kprep-scores.json";
+import ScoreData from "@/data/dummy-scores.json";
 
 export default {
   name: "app",

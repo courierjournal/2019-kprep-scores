@@ -1,0 +1,37 @@
+[
+  {
+    "n": "Western High",
+    "d": "Jefferson County",
+    "s": 3,
+    "e": "TSI",
+    "t": []
+  },
+  {
+    "n": "Eastern High",
+    "d": "Jefferson County",
+    "s": 1,
+    "e": "",
+    "t": []
+  },
+  {
+    "n": "Northern Elementary",
+    "d": "Bullitt County",
+    "s": 4,
+    "e": "",
+    "t": []
+  },
+  {
+    "n": "Southern Middle",
+    "d": "Spencer County",
+    "s": 5,
+    "e": "",
+    "t": []
+  },
+  {
+    "n": "Southwest Elementary",
+    "d": "Oldham County",
+    "s": 2,
+    "e": "",
+    "t": []
+  }
+]
