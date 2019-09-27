@@ -31,7 +31,7 @@
       </section>
       <section class="app-database">
         <SearchBar />
-        <DataTable />
+        <DataTable :data="ScoreData" />
       </section>
     </main>
   </div>
@@ -40,14 +40,25 @@
 <script>
 import SearchBar from "@/components/SearchBar";
 import DataTable from "@/components/DataTable";
+import ScoreData from "@/data/2019-kprep-scores.json";
 
 export default {
   name: "app",
-  components: { SearchBar, DataTable }
+  components: { SearchBar, DataTable },
+  data() {
+    return {
+      ScoreData
+    };
+  }
 };
 </script>
 
-<style scoped>
+<style>
+:root {
+  --gannett-blue: #009bff;
+  --gannett-grey: #404040;
+}
+
 #app {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

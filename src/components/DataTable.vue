@@ -10,7 +10,7 @@
         </tr>
       </thead>
       <tbody>
-        <DataRow />
+        <DataRow v-for="(item,index) in data" :key="index" :rowData="item" />
       </tbody>
     </table>
   </div>
@@ -26,7 +26,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
 .table-container {
   padding: 1em;
 }
@@ -43,4 +43,26 @@ thead > tr {
 thead > tr > th {
   padding: 1em;
 }
+
+tbody> tr:nth-child(even){
+    background-color:#eee;
+}
+
+th:first-child {
+  text-align: left;
+}
+
+th:nth-child(2) {
+  text-align: left;
+}
+
+th:nth-child(3) {
+  text-align: center;
+}
+
+th:last-child {
+  text-align: center;
+}
+
+
 </style>
