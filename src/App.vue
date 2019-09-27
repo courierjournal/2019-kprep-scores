@@ -30,17 +30,20 @@
         </div>
       </section>
       <section class="app-database">
-        <SearchBar/>
+        <SearchBar />
+        <DataTable />
       </section>
     </main>
   </div>
 </template>
 
 <script>
-import SearchBar from "@/components/SearchBar"
+import SearchBar from "@/components/SearchBar";
+import DataTable from "@/components/DataTable";
+
 export default {
   name: "app",
-  components: {SearchBar}
+  components: { SearchBar, DataTable }
 };
 </script>
 

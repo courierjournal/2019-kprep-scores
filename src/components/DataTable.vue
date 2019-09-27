@@ -9,13 +9,20 @@
           <th>More</th>
         </tr>
       </thead>
+      <tbody>
+        <DataRow />
+      </tbody>
     </table>
   </div>
 </template>
 
 <script>
+import DataRow from "./DataRow";
+
 export default {
-  name: "DataTable"
+  name: "DataTable",
+  components: { DataRow },
+  props: ["data"]
 };
 </script>
 
