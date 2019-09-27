@@ -29,15 +29,18 @@
           </p>
         </div>
       </section>
-      <section class="app-database"></section>
+      <section class="app-database">
+        <SearchBar/>
+      </section>
     </main>
   </div>
 </template>
 
 <script>
+import SearchBar from "@/components/SearchBar"
 export default {
   name: "app",
-  components: {}
+  components: {SearchBar}
 };
 </script>
 
