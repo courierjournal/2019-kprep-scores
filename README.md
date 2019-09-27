@@ -1,4 +1,5 @@
 # 2019-kprep-scores
+![Star Search!](star-search.jpg)
 
 Project repo that contains the 2019 kprep searchable database tool. 
 
