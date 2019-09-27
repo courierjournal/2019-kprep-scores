@@ -19,3 +19,8 @@ yarn-error.log*
 *.njsproj
 *.sln
 *.sw?
+
+# Prevent data from being committed before embargo
+src/data/*.json
+raw-data/*
+!raw-data/*.md
