@@ -52,6 +52,7 @@ table out of divs. If vue ever supports Fragments ala React, refactor this all b
 
 .thead > .tr {
   border-bottom: 1px solid #ccc;
+  font-family: "Unify Sans", sans-serif;
 }
 
 .th {

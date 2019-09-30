@@ -3,25 +3,22 @@
     <main>
       <section class="app-header">
         <h1>2019 K-PREP test scores</h1>
-        <p>
-          The Kentucky Performance Rating for Educational Progress (K-PREP) is here!
-
-        </p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce nibh orci, pellentesque id lacinia non, dapibus ac nulla. Praesent eget interdum eros. Sed vel venenatis turpis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Cras vestibulum blandit sodales. Nulla viverra tellus vitae purus maximus auctor. Donec et enim in orci ornare feugiat vitae sit amet arcu.</p>
       </section>
       <section class="app-explainer-new">
         <h2>Whats new for 2019</h2>
         <ul>
           <li>
-            In an effort to help more easily guage the overall performance of a school, The Kentucky
+            In an effort to help more easily gauge the overall performance of a school, The Kentucky
             Department of Education has included a star rating system which assigns 1 and 5 stars based
             based on a combination of factors.
             <a
               href="#"
-            >Read more about how this rating is calculated.</a>
+            >Read more about how this rating is calculated.</a> (Can we explain this?)
           </li>
           <li>
             In keeping with federal standards,
-            the designation of
+            the classification of
             <i>
               Targeted Support
               and Improvement
@@ -31,19 +28,26 @@
         </ul>
       </section>
       <section class="app-explainer-designations">
-        <h2>How the designations work</h2>
+        <h2>How the classifications work</h2>
+        <p>The federal government requires states to tract two categories of underachieving schools:</p>
+        <ul>
+          <li>ATSI: which are</li>
+          <li>CSI: which are</li>
+        </ul>
         <p>
-          Schools will be identified only for the federally-required accountability designations of Targeted Support and Improvement (TSI) – those with one or more low-performing groups – and Comprehensive Support and Improvement (CSI) – those in the bottom 5 percent of performance by level (elementary, middle or high); or that have a 4- year graduation rate of less than 80 percent. Schools designated as TSI and CSI will have to develop improvement plans and CSI schools will be provided additional support.
-          <a
-            href="https://www.courier-journal.com/story/news/education/2018/09/26/kentucky-school-ratings-system-what-csi-tsi-mean/1427412002/"
-          >Read more about how these designations work</a>.
+          <a href="#">Read more about how these classifications work</a>. (Do we have an updated link?)
         </p>
       </section>
       <section class="app-database">
         <h2>Search the database of Kentucky schools</h2>
-        
-        <SearchBar />
-        <DataTable :data="ScoreData" />
+
+        <SearchBar @filter="setFilterQuery" />
+        <DataTable :data="paginatedList" />
+        <Paginate
+          v-show="filteredList.length > paginate.itemsPerPage"
+          :pageCount="paginate.pageCount"
+          :click-handler="paginationControl"
+        />
       </section>
       <section class="app-map">
         <h2>Map of Schools in Kentucky</h2>
@@ -55,15 +59,56 @@
 <script>
 import SearchBar from "@/components/SearchBar";
 import DataTable from "@/components/DataTable";
+import Paginate from "vuejs-paginate";
 import ScoreData from "@/data/2019-kprep-scores.json";
 
 export default {
   name: "app",
-  components: { SearchBar, DataTable },
+  components: { SearchBar, DataTable, Paginate },
   data() {
     return {
-      ScoreData
+      ScoreData,
+      filterQuery: "",
+      paginate: {
+        itemsPerPage: 10,
+        currentPage: 0,
+        pageCount: 0
+      }
     };
+  },
+  computed: {
+    filteredList(query) {
+      var search = this.filterQuery.toLowerCase().trim();
+      if (!search) return this.ScoreData;
+      return this.ScoreData.filter(o =>
+        Object.keys(o).some(k => {
+          return String(o[k])
+            .toLowerCase()
+            .includes(search.toLowerCase());
+        })
+      );
+    },
+    paginatedList() {
+      let beginning = this.paginate.currentPage * this.paginate.itemsPerPage;
+      let end = beginning + this.paginate.itemsPerPage;
+      return this.filteredList.slice(beginning, end);
+    }
+  },
+  methods: {
+    setFilterQuery(query) {
+      this.filterQuery = query;
+      this.setPageCount();
+    },
+    paginationControl(e) {
+      this.paginate.currentPage = e;
+    },
+    setPageCount() {
+      this.paginate.pageCount =
+        Math.floor(this.filteredList.length / this.paginate.itemsPerPage);
+    }
+  },
+  created() {
+    this.setPageCount();
   }
 };
 </script>

@@ -7,7 +7,7 @@
       </div>
       <div class="td">{{rowData.c}}</div>
       <div class="td">
-        <div class="star-container">
+        <div class="star-container" :title="getTitle">
           <span class="full-stars" v-for="index in getStars[0]" :key="'f'+ index">★</span>
           <span class="empty-stars" v-for="index in getStars[1]" :key="'e' + index">★</span>
         </div>
@@ -21,7 +21,7 @@
       </div>
     </div>
     <div class="tr" v-if="rowExpanded">
-      <div class="td">extra row</div>
+      <div class="td">Extended dataset goes here</div>
     </div>
   </div>
 </template>
@@ -35,7 +35,11 @@ export default {
       let fullStars = this.rowData.s;
       let emptyStars = 5 - fullStars;
       return [fullStars, emptyStars];
+    },
+    getTitle(){
+      return `${this.rowData.s} stars`;
     }
+
   },
   data() {
     return {
@@ -57,6 +61,7 @@ export default {
 .star-container {
   font-size: 1.5rem;
   display: inline-block;
+  cursor:pointer;
 }
 
 .full-stars {

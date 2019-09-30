@@ -15,18 +15,21 @@ includeDistrictTotals = True
 
 excelData = pd.read_excel(sourceFile, sheet_name=sourceSheet)
 schoolListRaw = excelData.transpose().to_dict()
+# print (excelData.to_json(orient='records'))
 schoolListJson = []
 for index, school in schoolListRaw.items():
-    if type(school['TITLE1_STATUS']) is str:
-        if "Title I Eligible" in school['TITLE1_STATUS']:
-            schoolListJson.append({
-                "id": school['STATE_SCH_ID'],
-                "name": school['SCH_NAME'],
-                "county": school['CNTYNAME'],
-                "district": school['DIST_NAME'],
-                "lat": school['LATITUDE'],
-                "lng": school['LONGITUDE']
-            })
+    if type(school["TITLE1_STATUS"]) is str:
+        if school["SCH_TYPE"] == "A1":
+            schoolListJson.append(
+                {
+                    "id": school["STATE_SCH_ID"],
+                    "name": school["SCH_NAME"],
+                    "county": school["CNTYNAME"],
+                    "district": school["DIST_NAME"],
+                    "lat": school["LATITUDE"],
+                    "lng": school["LONGITUDE"],
+                }
+            )
 
 
 # EXTRACT STAR RATING
@@ -39,13 +42,19 @@ excelData = pd.read_excel(sourceFile, sheet_name=sourceSheet)
 starListRaw = excelData.transpose().to_dict()
 starListJson = []
 for index, school in starListRaw.items():
-    starListJson.append({
-        "id": school['STATE_SCH_ID'],
-        "stars": school['STARS'],
-        "rating": school['PROFICIENCY_RATE'],
-        "classification": school['FED_CLASS'],
-        "gradRate": school['GRAD_RATE']
-    })
+    starListJson.append(
+        {
+            "id": school["STATE_SCH_ID"],
+            "stars": school["STARS"],
+            "rating": school["OVERALL_SCORE"],
+            "classification": school["FED_CLASS"]
+        }
+    )
+
+
+# EXTRACT GRAD RATE
+sourceFile = "../raw-data/All_SRC_Embargo_Datasets_2019/GRADUATION_RATE.xlsx"
+#GRADRATE4YR
 
 
 # CONVERT THE DICTS TO A DATAFRAME
@@ -55,7 +64,7 @@ dictList = ["schoolListJson", "starListJson"]
 
 df = {}
 for item in dictList:
-    df[item] = pd.DataFrame.from_dict(eval(item), orient='columns')
+    df[item] = pd.DataFrame.from_dict(eval(item), orient="columns")
 
 
 # MERGE THE DATAFRAMES BASED ON A COMMON KEY
@@ -63,24 +72,30 @@ for item in dictList:
 mergeKey = "id"
 # </options>
 
-result = df['schoolListJson'].merge(df['starListJson'], on=mergeKey)
+result = df["schoolListJson"].merge(df["starListJson"], on=mergeKey)
 
 
 # WRITE CSV OUTPUT FOR DEBUGGING
-result.to_csv(r'debug.csv')
+outputFile = "../raw-data/processed.csv"
+result.to_csv(outputFile)
 
 
 # WRITE PRIMARY DATA FILE
+outputFile = "../src/data/2019-kprep-scores.json"
 output = []
 for index, school in result.transpose().to_dict().items():
-    output.append({
-        "n": school['name'],
-        "d": school['district'],
-        "s": school['stars'],
-        "c": school['classification'],
-        "t": []
-    })
+    output.append(
+        {
+            "n": school["name"],
+            "d": school["district"],
+            "s": school["stars"],
+            "c": school["classification"],
+            "t": [],
+        }
+    )
 
-
-with open('../src/data/2019-kprep-scores.json', 'w') as f:
-    json.dump(output, allow_nan= False,f)
+print(output[0])
+"""    
+with open(outputFile, "w") as f:
+    json.dump(output, f)
+"""
