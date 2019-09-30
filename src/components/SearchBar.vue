@@ -1,6 +1,6 @@
 <template>
   <div class="search-container">
-    <input class="search" type="text" placeholder="School or district name" />
+    <input class="search" type="text" placeholder="Enter school or district name" />
   </div>
 </template>
 
@@ -21,5 +21,6 @@ export default {
   padding: .3em;
   border:none;
   border-bottom:1px solid #aaa;
+  outline:none;
 }
 </style>
