@@ -5,3 +5,11 @@ Initial row:
 + Stars
 
 Expanded row:
++ Designation reason
++ Ach gap score
+
++ Math Proficient Total
++ Math Proficient Black
++ Math Proficient White
+
++ Reading Proficient

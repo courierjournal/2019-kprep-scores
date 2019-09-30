@@ -6,8 +6,8 @@ In order to compress the file as tight as possible we're abbreviating most of th
 {
     "n": "School Name (string)",
     "d": "District (string)",
-    "s": Stars (number),
-    "e": "Designation (string) {optional}",
+    "s": "Stars (number)",
+    "c": "Classification (string) {optional}",
     "t": [
         []
     ]
