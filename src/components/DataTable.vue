@@ -37,7 +37,7 @@ table out of divs. If vue ever supports Fragments ala React, refactor this all b
 */
 .table-container {
   padding: 1em;
-  min-height:70vh;
+  min-height:50vh;
   overflow:hidden;
 }
 
