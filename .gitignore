@@ -25,3 +25,4 @@ src/data/*.json
 !src/data/dummy-scores.json
 raw-data/*
 !raw-data/*.md
+tools/debug.csv
