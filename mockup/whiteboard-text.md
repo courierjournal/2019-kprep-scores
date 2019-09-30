@@ -1,3 +1,4 @@
+*ONLINE*
 Initial row:
 + School name
 + District name
