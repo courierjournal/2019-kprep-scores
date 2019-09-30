@@ -1,22 +1,27 @@
 <template>
-  <div class="tr">
-    <div class="td">
-      <div class="school-name">{{rowData.n}}</div>
-      <div class="school-district">{{rowData.d}}</div>
-    </div>
-    <div class="td">{{rowData.e}}</div>
-    <div class="td">
-      <div class="star-container">
-        <span class="full-stars" v-for="index in getStars[0]" :key="'f'+ index">★</span>
-        <span class="empty-stars" v-for="index in getStars[1]" :key="'e' + index">★</span>
+  <div>
+    <div class="tr">
+      <div class="td">
+        <div class="school-name">{{rowData.n}}</div>
+        <div class="school-district">{{rowData.d}}</div>
+      </div>
+      <div class="td">{{rowData.c}}</div>
+      <div class="td">
+        <div class="star-container">
+          <span class="full-stars" v-for="index in getStars[0]" :key="'f'+ index">★</span>
+          <span class="empty-stars" v-for="index in getStars[1]" :key="'e' + index">★</span>
+        </div>
+      </div>
+      <div class="td">
+        <div
+          class="expand-button"
+          :class="{ active: rowExpanded }"
+          @click="rowExpanded = !rowExpanded"
+        >+</div>
       </div>
     </div>
-    <div class="td">
-      <div
-        class="expand-button"
-        :class="{ active: rowExpanded }"
-        @click="rowExpanded = !rowExpanded"
-      >+</div>
+    <div class="tr" v-if="rowExpanded">
+      <div class="td">extra row</div>
     </div>
   </div>
 </template>

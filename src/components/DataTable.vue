@@ -38,30 +38,15 @@ table out of divs. If vue ever supports Fragments ala React, refactor this all b
 .table-container {
   padding: 1em;
   min-height:70vh;
+  overflow:hidden;
 }
 
-.table {
-  display: table;
-  width: 100%;
-  border-collapse: collapse;
-}
-
-.thead {
-  display: table-header-group;
-}
-
-.tbody {
-  display: table-row-group;
-}
-
-.tr {
-  display: table-row;
+.tr{
+    display:flex;
 }
 
 .td,
 .th {
-  display: table-cell;
-  vertical-align:middle;
   padding:1em;
 }
 
@@ -79,17 +64,21 @@ table out of divs. If vue ever supports Fragments ala React, refactor this all b
 
 .th:first-child, .td:first-child  {
   text-align: left;
+  width:40%;
 }
 
 .th:nth-child(2), .td:nth-child(2) {
   text-align: left;
+  width:25%
 }
 
 .th:nth-child(3), .td:nth-child(3) {
   text-align: center;
+  width:25%;
 }
 
 .th:last-child, .td:last-child  {
   text-align: center;
+  width:10%;
 }
 </style>

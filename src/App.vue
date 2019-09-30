@@ -2,17 +2,10 @@
   <div id="app">
     <main>
       <section class="app-header">
-        <h1>2019 KPREP test scores</h1>
+        <h1>2019 K-PREP test scores</h1>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse elementum nibh congue
-          arcu commodo, at consequat nulla vehicula. Donec accumsan, nisi eu accumsan facilisis, sapien
-          tellus ultrices arcu, quis hendrerit diam neque sit amet nisi. Interdum et malesuada fames
-          ac ante ipsum primis in faucibus. Ut a dolor efficitur, tempus lorem sed, laoreet libero.
-          Mauris non rhoncus justo. Pellentesque ut leo et risus maximus elementum id sed libero. Nam
-          sit amet fermentum ligula, eu ultrices orci. Mauris est eros, auctor a aliquam eu, venenatis
-          ac nunc. Nulla fringilla mi vitae dictum tempor. Etiam vitae urna sodales, auctor felis ut,
-          euismod elit. Etiam vitae felis tortor. Sed eu viverra dui. Curabitur quis gravida erat.
-          Aenean quis nisl risus.
+          The Kentucky Performance Rating for Educational Progress (K-PREP) is here!
+
         </p>
       </section>
       <section class="app-explainer-new">
@@ -48,11 +41,7 @@
       </section>
       <section class="app-database">
         <h2>Search the database of Kentucky schools</h2>
-        <p>
-          The Kentucky Department of Education has released over 500,000(?) data points related to KPREP testing across the state.
-          Courier Journal has parsed the most relevant data points into an easy to search database. Simply enter the name of the school
-          or the district.
-        </p>
+        
         <SearchBar />
         <DataTable :data="ScoreData" />
       </section>
@@ -66,7 +55,7 @@
 <script>
 import SearchBar from "@/components/SearchBar";
 import DataTable from "@/components/DataTable";
-import ScoreData from "@/data/dummy-scores.json";
+import ScoreData from "@/data/2019-kprep-scores.json";
 
 export default {
   name: "app",
@@ -93,8 +82,6 @@ export default {
 
 #app {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
   margin-top: 60px;
 }
@@ -115,7 +102,7 @@ main {
 }
 
 section {
-  margin: 2em 0;
+  margin: 3em 0;
 }
 
 h1,
@@ -127,16 +114,7 @@ h5 {
 }
 
 h1 {
-  font-size: 2.6em !important;
-}
-
-h1:after {
-  background: var(--gannett-blue);
-  content: "";
-  display: block;
-  height: 9px;
-  margin: 10px 0;
-  width: 45px;
+  font-size: 2.3em !important;
 }
 
 h2 {
@@ -154,5 +132,17 @@ ul {
 
 li {
   margin-bottom: 10px;
+}
+
+.app-header {
+  text-align: center;
+}
+
+.app-header > p {
+  font-size: 1.2em;
+  max-width: 80%;
+  margin: 0 auto;
+  line-height: 30px;
+  color: #555;
 }
 </style>
