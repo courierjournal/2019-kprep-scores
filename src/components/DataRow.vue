@@ -150,8 +150,8 @@ export default {
       }
     }
   },
-  watch:{
-    rowData: function(){
+  watch: {
+    rowData: function() {
       this.rowExpanded = false;
     }
   }
@@ -246,8 +246,10 @@ thead > tr {
 
 tbody > tr:nth-child(odd) {
   background-color: #e0e0e0;
-  border-bottom:1px solid #aaa;
+  border-bottom: 1px solid #aaa;
 }
+
+
 
 .high-school-data {
   padding: 1em;
