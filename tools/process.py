@@ -470,6 +470,9 @@ result = result.assign(
 result = result.assign(mathSeDiff=result['mathSe2019'] - result['mathSe2018'])
 
 
+# ROUND FLOATS
+result = result.round(decimals=1)
+
 # WRITE CSV OUTPUT FOR DEBUGGING
 outputFile = "../raw-data/processed.csv"
 result.to_csv(outputFile)
@@ -477,15 +480,20 @@ result.to_csv(outputFile)
 
 # WRITE PRIMARY DATA FILE
 outputFile = "../src/data/2019-kprep-scores.json"
+finalOut = json.loads(
+    result.where((pd.notnull(result)), None).to_json(orient='records'))
 output = []
-for index, school in result.transpose().to_dict().items():
+for school in finalOut:
     output.append(
         {
             "n": school["nameLabel"],
             "d": school["district"],
             "s": school["stars"],
+            "ss": school["starScore"],
             "c": school["classification"],
             "r": school["classificationReason"],
+            "hs": {"g": school["gradRate"],
+                   "t": school["transitionReadyRate"]},
             "t": [[
                 school['readingTotal2019'],
                 school['readingWhite2019'],

@@ -21,8 +21,5 @@ yarn-error.log*
 *.sw?
 
 # Prevent data from being committed before embargo
-src/data/*.json
-!src/data/dummy-scores.json
 raw-data/*
 !raw-data/*.md
-tools/debug.csv
