@@ -196,7 +196,7 @@ for school in raw:
                 "uid": getUid([school['SCH_NAME'], school['LEVEL'], school['STATE_SCH_ID']]),
                 "readingNonSe2019": school['PROFICIENT_DISTINGUISHED']
             })
-        if school['DEMOGRAPHIC'] == "ETW":
+        if school['DEMOGRAPHIC'] == "ACD":
             readingSe2019.append({
                 "uid": getUid([school['SCH_NAME'], school['LEVEL'], school['STATE_SCH_ID']]),
                 "readingSe2019": school['PROFICIENT_DISTINGUISHED']
@@ -242,7 +242,7 @@ for school in raw:
                 "uid": getUid([school['SCH_NAME'], school['LEVEL'], school['STATE_SCH_ID']]),
                 "mathNonSe2019": school['PROFICIENT_DISTINGUISHED']
             })
-        if school['DEMOGRAPHIC'] == "ETW":
+        if school['DEMOGRAPHIC'] == "ACD":
             mathSe2019.append({
                 "uid": getUid([school['SCH_NAME'], school['LEVEL'], school['STATE_SCH_ID']]),
                 "mathSe2019": school['PROFICIENT_DISTINGUISHED']
@@ -321,7 +321,7 @@ for school in raw:
                 "uid": getUid([school['SCH_NAME'], school['LEVEL'], school['STATE_SCH_ID']]),
                 "readingNonSe2018": school['PROFICIENT_DISTINGUISHED']
             })
-        if school['DEMOGRAPHIC'] == "ETW":
+        if school['DEMOGRAPHIC'] == "ACD":
             readingSe2018.append({
                 "uid": getUid([school['SCH_NAME'], school['LEVEL'], school['STATE_SCH_ID']]),
                 "readingSe2018": school['PROFICIENT_DISTINGUISHED']
@@ -367,7 +367,7 @@ for school in raw:
                 "uid": getUid([school['SCH_NAME'], school['LEVEL'], school['STATE_SCH_ID']]),
                 "mathNonSe2018": school['PROFICIENT_DISTINGUISHED']
             })
-        if school['DEMOGRAPHIC'] == "ETW":
+        if school['DEMOGRAPHIC'] == "ACD":
             mathSe2018.append({
                 "uid": getUid([school['SCH_NAME'], school['LEVEL'], school['STATE_SCH_ID']]),
                 "mathSe2018": school['PROFICIENT_DISTINGUISHED']
@@ -472,6 +472,46 @@ result = result.assign(mathSeDiff=result['mathSe2019'] - result['mathSe2018'])
 
 # ROUND FLOATS
 result = result.round(decimals=1)
+
+# CHANGE NULL TO 'NA'
+cols = ["readingTotal2019",
+            "readingWhite2019",
+            "readingBlack2019",
+            "readingNonFrl2019",
+            "readingFrl2019",
+            "readingNonEsl2019",
+            "readingEsl2019",
+            "readingNonSe2019",
+            "readingSe2019",
+            "mathTotal2019",
+            "mathWhite2019",
+            "mathBlack2019",
+            "mathNonFrl2019",
+            "mathFrl2019",
+            "mathNonEsl2019",
+            "mathEsl2019",
+            "mathNonSe2019",
+            "mathSe2019",
+            "readingTotal2018",
+            "readingWhite2018",
+            "readingBlack2018",
+            "readingNonFrl2018",
+            "readingFrl2018",
+            "readingNonEsl2018",
+            "readingEsl2018",
+            "readingNonSe2018",
+            "readingSe2018",
+            "mathTotal2018",
+            "mathWhite2018",
+            "mathBlack2018",
+            "mathNonFrl2018",
+            "mathFrl2018",
+            "mathNonEsl2018",
+            "mathEsl2018",
+            "mathNonSe2018",
+            "mathSe2018"]
+result.loc[:,cols] = result[cols].fillna('n/a')
+
 
 # WRITE CSV OUTPUT FOR DEBUGGING
 outputFile = "../raw-data/processed.csv"
