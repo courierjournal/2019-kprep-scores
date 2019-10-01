@@ -3,18 +3,18 @@
     <main>
       <section class="app-header">
         <h1>2019 K-PREP test scores</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce nibh orci, pellentesque id lacinia non, dapibus ac nulla. Praesent eget interdum eros. Sed vel venenatis turpis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Cras vestibulum blandit sodales. Nulla viverra tellus vitae purus maximus auctor. Donec et enim in orci ornare feugiat vitae sit amet arcu.</p>
+        <p>
+          Kentucky is rolling out its revised rating system that uses multiple measures to gauge how well each public school is performing.
+        </p>
       </section>
       <section class="app-explainer-new">
         <h2>Whats new for 2019</h2>
         <ul>
           <li>
-            In an effort to help more easily gauge the overall performance of a school, The Kentucky
-            Department of Education has included a star rating system which assigns 1 and 5 stars based
-            based on a combination of factors.
+            To help gauge the overall performance of each school, the Kentucky Department of Education has included a star rating system that assigns 1 to 5 stars based on a combination of factors. 1 is lowest; 5 is highest. 
             <a
-              href="#"
-            >Read more about how this rating is calculated.</a> (Can we explain this?)
+              href="https://www.courier-journal.com/story/news/education/2019/09/30/kprep-scores-2019-what-know-kentuckys-5-star-school-ratings/3779887002/"
+            >Read more about how this rating is calculated.</a>
           </li>
           <li>
             In keeping with federal standards,
@@ -31,11 +31,11 @@
         <h2>How the classifications work</h2>
         <p>The federal government requires states to tract two categories of underachieving schools:</p>
         <ul>
-          <li>ATSI: which are</li>
-          <li>CSI: which are</li>
+          <li>Additional Targeted Support and Improvement (ATSI) schools have failed to close an achievement gap for a low-performing student group, such as students with disabilities or African-American students. </li>
+          <li>Comprehensive support and improvement (CSI) schools are those in the bottom 5% of all schools in Kentucky. There are about 50 each year. </li>
         </ul>
         <p>
-          <a href="#">Read more about how these classifications work</a>. (Do we have an updated link?)
+          <a href="https://www.courier-journal.com/story/news/education/2019/09/30/kprep-scores-2019-what-know-kentuckys-5-star-school-ratings/3779887002/">Read more about how these classifications work</a>.
         </p>
       </section>
       <section class="app-database">
@@ -53,9 +53,11 @@
           />
         </div>
       </section>
+      <!--
       <section class="app-map">
         <h2>Map of Schools in Kentucky</h2>
       </section>
+      -->
     </main>
   </div>
 </template>
@@ -294,7 +296,7 @@ li {
   border-bottom-right-radius: 3px;
 }
 
-.pagination-container{
-  text-align:center;
+.pagination-container {
+  text-align: center;
 }
 </style>

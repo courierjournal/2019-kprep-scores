@@ -59,18 +59,18 @@ table out of divs. If vue ever supports Fragments ala React, refactor this all b
   font-weight:bold;
 }
 
-.tbody > .tr:nth-child(even) {
+.tbody > div:nth-child(even) {
   background-color: #eee;
 }
 
 .th:first-child, .td:first-child  {
   text-align: left;
-  width:40%;
+  width:45%;
 }
 
 .th:nth-child(2), .td:nth-child(2) {
   text-align: left;
-  width:25%
+  width:20%
 }
 
 .th:nth-child(3), .td:nth-child(3) {
